@@ -16,7 +16,7 @@ LifeLink is a web application designed to manage blood bank operations, organ do
 | **Patients** | Maintain patient records, organ waitlists, and urgency levels. |
 | **Requests** | Manage the pipeline for blood and organ requests, from request to delivery. |
 | **Matching Engine** | Match blood types and organ tissues based on compatibility. |
-| **Allocations** | Track dispatches, delivery trails, and detect delays. |
+| **Allocations** | View blood/organ allocations, filter by status, and update delivery progress. |
 | **Alerts** | Generate alerts for expiration, low stock, organ viability, and emergencies. |
 
 ---
@@ -136,11 +136,9 @@ Go to [http://localhost:3000](http://localhost:3000)
 ### Allocations
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| GET | `/api/allocations` | List allocations |
+| GET | `/api/allocations` | List allocations (supports `status` and `request_type` query filters) |
 | GET | `/api/allocations/:id` | Get allocation details |
-| POST | `/api/allocate/blood` | Allocate a blood bag |
-| POST | `/api/allocate/organ` | Allocate an organ |
-| PUT | `/api/allocations/:id/delivery` | Update delivery status |
+| PUT | `/api/allocations/:id/delivery` | Update delivery status (`dispatched`, `delivered`, or `failed`) |
 
 ### Alerts
 | Method | Endpoint | Description |
